@@ -2473,7 +2473,8 @@ Workbook$methods(
                             value,
                             allowBlank,
                             showInputMsg,
-                            showErrorMsg) {
+                            showErrorMsg,
+                            prompt) {
     sheet <- validateSheet(sheet)
     sqref <-
       stri_join(getCellRefs(data.frame(
@@ -2486,13 +2487,14 @@ Workbook$methods(
 
     header <-
       sprintf(
-        '<dataValidation type="%s" operator="%s" allowBlank="%s" showInputMessage="%s" showErrorMessage="%s" sqref="%s">',
+        '<dataValidation type="%s" operator="%s" allowBlank="%s" showInputMessage="%s" showErrorMessage="%s" sqref="%s" prompt="%s">',
         type,
         operator,
         allowBlank,
         showInputMsg,
         showErrorMsg,
-        sqref
+        sqref,
+        prompt
       )
 
 
@@ -2554,7 +2556,8 @@ Workbook$methods(
                                  value,
                                  allowBlank,
                                  showInputMsg,
-                                 showErrorMsg) {
+                                 showErrorMsg,
+                                 prompt) {
     sheet <- validateSheet(sheet)
     sqref <-
       stri_join(getCellRefs(data.frame(
@@ -2566,11 +2569,12 @@ Workbook$methods(
       )
     data_val <-
       sprintf(
-        '<x14:dataValidation type="list" allowBlank="%s" showInputMessage="%s" showErrorMessage="%s">',
+        '<x14:dataValidation type="list" allowBlank="%s" showInputMessage="%s" showErrorMessage="%s" sqref="%s" prompt="%s">',
         allowBlank,
         showInputMsg,
         showErrorMsg,
-        sqref
+        sqref,
+        prompt
       )
 
     formula <-

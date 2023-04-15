@@ -14,7 +14,8 @@ dataValidation(
   value,
   allowBlank = TRUE,
   showInputMsg = TRUE,
-  showErrorMsg = TRUE
+  showErrorMsg = TRUE,
+  prompt = ""
 )
 }
 \arguments{
@@ -38,6 +39,9 @@ dataValidation(
 \item{showInputMsg}{logical}
 
 \item{showErrorMsg}{logical}
+
+\item{prompt}{Input message}
+
 }
 \description{
 Add Excel data validation to cells

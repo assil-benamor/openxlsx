@@ -3113,6 +3113,7 @@ setFooter <- function(wb, text, position = "center") {
 #' @param allowBlank logical
 #' @param showInputMsg logical
 #' @param showErrorMsg logical
+#' @param prompt Input message
 #' @export
 #' @examples
 #' wb <- createWorkbook()
@@ -3167,7 +3168,7 @@ setFooter <- function(wb, text, position = "center") {
 #' dataValidation(wb, 1, col = 1, rows = 2:31, type = "list", value = "'Sheet 2'!$A$1:$A$10")
 #'
 #' # openXL(wb)
-dataValidation <- function(wb, sheet, cols, rows, type, operator, value, allowBlank = TRUE, showInputMsg = TRUE, showErrorMsg = TRUE) {
+dataValidation <- function(wb, sheet, cols, rows, type, operator, value, allowBlank = TRUE, showInputMsg = TRUE, showErrorMsg = TRUE, prompt = "") {
   op <- get_set_options()
   on.exit(options(op), add = TRUE)
 
@@ -3259,7 +3260,8 @@ dataValidation <- function(wb, sheet, cols, rows, type, operator, value, allowBl
       value = value,
       allowBlank = allowBlank,
       showInputMsg = showInputMsg,
-      showErrorMsg = showErrorMsg
+      showErrorMsg = showErrorMsg,
+      prompt = prompt
     ))
   } else {
     invisible(wb$dataValidation(
@@ -3273,7 +3275,8 @@ dataValidation <- function(wb, sheet, cols, rows, type, operator, value, allowBl
       value = value,
       allowBlank = allowBlank,
       showInputMsg = showInputMsg,
-      showErrorMsg = showErrorMsg
+      showErrorMsg = showErrorMsg,
+      prompt = prompt
     ))
   }
 
